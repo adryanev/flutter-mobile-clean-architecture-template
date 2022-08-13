@@ -8,6 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:template/app/router/app_router.dart';
 import 'package:template/core/utils/constants.dart';
 import 'package:template/l10n/l10n.dart';
@@ -29,6 +30,7 @@ class App extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch(
               accentColor: const Color(0xFF13B9FF),
             ),
+            fontFamily: GoogleFonts.poppins().fontFamily,
             textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
           ),
           localizationsDelegates: const [
