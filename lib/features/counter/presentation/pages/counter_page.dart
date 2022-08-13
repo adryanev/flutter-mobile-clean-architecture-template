@@ -1,5 +1,5 @@
-// Copyright (c) 2022, Very Good Ventures
-// https://verygood.ventures
+// Copyright (c) 2022, Adryan Eka Vandra
+// https://github.com/adryanev/flutter-template-architecture-template
 //
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file or at
@@ -7,7 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:template/counter/counter.dart';
+import 'package:template/core/extensions/context_extensions.dart';
+import 'package:template/features/counter/counter.dart';
 import 'package:template/l10n/l10n.dart';
 
 class CounterPage extends StatelessWidget {
@@ -55,8 +56,7 @@ class CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     final count = context.select((CounterCubit cubit) => cubit.state);
-    return Text('$count', style: theme.textTheme.headline1);
+    return Text('$count', style: context.theme.textTheme.headline1);
   }
 }

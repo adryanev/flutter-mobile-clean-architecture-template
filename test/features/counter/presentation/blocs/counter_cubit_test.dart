@@ -1,5 +1,5 @@
-// Copyright (c) 2022, Very Good Ventures
-// https://verygood.ventures
+// Copyright (c) 2022, Adryan Eka Vandra
+// https://github.com/adryanev/flutter-template-architecture-template
 //
 // Use of this source code is governed by an MIT-style
 // license that can be found in the LICENSE file or at
@@ -7,8 +7,7 @@
 
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:template/counter/counter.dart';
+import 'package:template/features/counter/counter.dart';
 
 void main() {
   group('CounterCubit', () {

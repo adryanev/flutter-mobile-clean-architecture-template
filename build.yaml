@@ -1,0 +1,18 @@
+targets:
+  $default:
+    builders:
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - implicit_dynamic_parameter
+      json_serializable:
+        options:
+          # field_rename: snake
+      freezed:freezed:
+        generate_for:
+          exclude:
+            - lib
+            - test
+          include:
+            - lib/**/blocs/**.dart
+            - lib/**.codegen.dart
