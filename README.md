@@ -1,4 +1,6 @@
-# Flutter Clean Architecture Project Template
+# Flutter Clean Architecture Project Template: Basic Template
+
+***A Very Opinionated Flutter Project Template***
 
 ![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
@@ -6,7 +8,19 @@
 
 Powered by the [Very Good CLI][very_good_cli_link] 🤖
 
-A Template Flutter Project Template
+---
+
+## Available Templates
+
+Please check other branch to see other template.
+
+- Basic + Firebase
+- Basic + Offline SQL Databases
+- Basic + Offline NoSQL Database
+- Basic + Online API
+- Basic + Online + Offline SQL Database
+- Basic + Online + Offline + Firebase
+- Complete
 
 ---
 
