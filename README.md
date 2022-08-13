@@ -1,4 +1,4 @@
-# Flutter Template Architecture Project Template
+# Flutter Clean Architecture Project Template
 
 ![coverage][coverage_badge]
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
@@ -92,34 +92,35 @@ $ open coverage/index.html
 
 The project is already included some library to speed up the development process.
 
-| Category | Library Name | Link | Documentation |
-|--|--|--|--|
-| **State management** | `bloc` | <https://pub.dev/packages/bloc> | <https://bloclibrary.dev/#/> |
-| ... | `flutter_bloc` | <https://pub.dev/packages/flutter_bloc> | <https://bloclibrary.dev/#/>|
-| ... | `bloc_concurrency` | <https://pub.dev/packages/bloc_concurrency> | <https://bloclibrary.dev/#/>|
-| **Router** | `go_router`  | <https://pub.dev/packages/go_router> | <https://gorouter.dev/> |
-| **Code Generator** | `build_runner` | <https://pub.dev/packages/build_runner> | <https://pub.dev/packages/build_runner> |
-| ... | `flutter_gen_runner`* | <https://pub.dev/packages/flutter_gen_runner> | <https://pub.dev/packages/flutter_gen> |
-| ... | `flutter_native_splash` | <https://pub.dev/packages/flutter_native_splash> | <https://pub.dev/packages/flutter_native_splash> |
-| **Languange Feature** | `dartz` | <https://pub.dev/packages/dartz> | No documentation, but you can refer to [Arrow-Kt Documentation](https://arrow-kt.io/docs/0.13/apidocs/arrow-core/arrow.core/index.html) |
-| ... | `rxdart` | <https://pub.dev/packages/rxdart> | <https://medium.com/globant/intro-to-rxdart-7e1429fabce0> |
-| ... | `equatable` | <https://pub.dev/packages/equatable> | <https://pub.dev/packages/equatable>|
-| ... | `freezed` | <https://pub.dev/packages/freezed> | <https://pub.dev/packages/freezed> |
-| ... | `freezed_annotation` | <https://pub.dev/packages/freezed_annotation>| <https://pub.dev/packages/freezed> |
-| ... | `change_case` | <https://pub.dev/packages/change_case> | <https://pub.dev/packages/change_case> |
-| ... | `intl` | <https://pub.dev/packages/intl> | <https://pub.dev/packages/intl> |
-| **JSON** | `json_serializable` | <https://pub.dev/packages/json_serializable> | <https://pub.dev/packages/json_serializable> |
-| ... | `json_annotation` | <https://pub.dev/packages/json_annotation> | <https://pub.dev/packages/json_serializable> |
-| **Dependency Injection** | `get_it` | <https://pub.dev/packages/get_it> | <https://pub.dev/packages/get_it>|
-| ... | `injectable` | <https://pub.dev/packages/injectable> | <https://pub.dev/packages/injectable>|
-| ... | `injectable_generator` | <https://pub.dev/packages/injectable_generator> | <https://pub.dev/packages/injectable>|
-| **Local Storage** | `shared_preferences` | <https://pub.dev/packages/shared_preferences> | <https://pub.dev/packages/shared_preferences> |
-| **Logging** | `logging` | <https://pub.dev/packages/logging> | <https://pub.dev/packages/logging> |
-| **Widgets** | `flutter_hooks` | <https://pub.dev/packages/flutter_hooks> | <https://pub.dev/packages/flutter_hooks> |
-| ... | `flutter_screenutil` | <https://pub.dev/packages/flutter_screenutil> | <https://pub.dev/packages/flutter_screenutil> |
-| ... | `flutter_svg` | <https://pub.dev/packages/flutter_svg> | <https://pub.dev/packages/flutter_svg> |
-| ... | `google_fonts` | <https://pub.dev/packages/google_fonts> | <https://pub.dev/packages/google_fonts> |
-
+| Category | Library Name | Link
+|--|--|--
+| **State management** | `bloc` | <https://pub.dev/packages/bloc> |
+| | `flutter_bloc` | <https://pub.dev/packages/flutter_bloc> |
+| | `bloc_concurrency` | <https://pub.dev/packages/bloc_concurrency> |
+| **Router** | `go_router`  | <https://pub.dev/packages/go_router> |
+| **Code Generator** | `build_runner` | <https://pub.dev/packages/build_runner> |
+| | `flutter_gen_runner`* | <https://pub.dev/packages/flutter_gen_runner> |
+| | `flutter_native_splash` | <https://pub.dev/packages/flutter_native_splash> |
+| **Languange Feature** | `dartz` | <https://pub.dev/packages/dartz>|
+| | `rxdart` | <https://pub.dev/packages/rxdart> |
+| | `equatable` | <https://pub.dev/packages/equatable> |
+| | `freezed` | <https://pub.dev/packages/freezed> |
+| | `freezed_annotation` | <https://pub.dev/packages/freezed_annotation>|
+| | `change_case` | <https://pub.dev/packages/change_case> |
+| | `intl` | <https://pub.dev/packages/intl>|
+| **JSON** | `json_serializable` | <https://pub.dev/packages/json_serializable> |
+| | `json_annotation` | <https://pub.dev/packages/json_annotation> |
+| **Dependency Injection** | `get_it` | <https://pub.dev/packages/get_it> |
+| | `injectable` | <https://pub.dev/packages/injectable> |
+| | `injectable_generator` | <https://pub.dev/packages/injectable_generator> |
+| **Local Storage** | `shared_preferences` | <https://pub.dev/packages/shared_preferences> |
+| **Logging** | `logging` | <https://pub.dev/packages/logging> |
+| **Widgets** | `flutter_hooks` | <https://pub.dev/packages/flutter_hooks> |
+| | `flutter_screenutil` | <https://pub.dev/packages/flutter_screenutil> |
+| | `flutter_svg` | <https://pub.dev/packages/flutter_svg>  |
+| | `google_fonts` | <https://pub.dev/packages/google_fonts> |
+| **Testing** | `mocktail` | <https://pub.dev/packages/mocktail> |
+| | `bloc_test` | <https://pub.dev/packages/bloc_test> |
 All the library above are compatible with Flutter 3.
 
 Notes: **need to install [flutter_gen](https://pub.dev/packages/flutter_gen)*
@@ -138,49 +139,49 @@ lib
 |   |   ├── app.dart                    # MainApp File
 |   ├── app.dart
 ├── core
-|   ├── di
-|   ├── domain
-|   ├── utils
-├── shared
+|   ├── di                              # Dependency Injection Module
+|   ├── domain                          # Base Classes for domain layer
+|   ├── utils                           # utilities, constants, and extensions
+├── shared                              # Shared Entity, Models, Widget, Service
 ├── features
-|   ├── counter
+|   ├── counter                         # Feature Counter
 |   |   ├── data
-|   |   |   ├── datasources
-|   |   |   ├── models
-|   |   |   ├── repositories
+|   |   |   ├── datasources             # Data source (network, local)
+|   |   |   ├── models                  # DTO / Payload Model
+|   |   |   ├── repositories            # Implementation of domain Repository
 |   |   ├── domain
-|   |   |   ├── entities
-|   |   |   ├── repositories
-|   |   |   ├── usecases
+|   |   |   ├── entities                # Business Domain Entity
+|   |   |   ├── repositories            # Interface Repository
+|   |   |   ├── usecases                # Business Use Cases
 |   |   ├── presentation
-|   |   |   ├── blocs
-|   |   |   ├── pages
-|   |   |   ├── widgets
+|   |   |   ├── blocs                   # Application Logic & State management
+|   |   |   ├── pages                   # Application pages
+|   |   |   ├── widgets                 # Common Widgets in Feature
 ├── l10n
 │   ├── arb
-│   │   ├── app_en.arb
-│   │   └── app_id.arb
-├── bootstrap.dart
-├── main_development.dart
-├── main_production.dart
-├── main_staging.dart
+│   │   ├── app_en.arb                  # English Translation
+│   │   └── app_id.arb                  # Indonesian Translation
+├── bootstrap.dart                      # Common Main Bootstrap Script
+├── main_development.dart               # Env Development main method
+├── main_production.dart                # Env Production main method
+├── main_staging.dart                   # Env Staging main method
 test
-├── app
+├── app                                 # App Test
 ├── features
-|   ├── counter
+|   ├── counter                         # Feature Counter Test
 |   |   ├── data
-|   |   |   ├── datasources
-|   |   |   ├── models
-|   |   |   ├── repositories
+|   |   |   ├── datasources             # Data source (network, local) test
+|   |   |   ├── models                  # DTO / Payload Model test
+|   |   |   ├── repositories            # Implementation repository test
 |   |   ├── domain
-|   |   |   ├── entities
-|   |   |   ├── repositories
-|   |   |   ├── usecases
+|   |   |   ├── entities                # Business Domain Entity test
+|   |   |   ├── repositories            # Interface Repository test
+|   |   |   ├── usecases                # Business Use Cases test
 |   |   ├── presentation
-|   |   |   ├── blocs
-|   |   |   ├── pages
-|   |   |   ├── widgets
-├── helpers
+|   |   |   ├── blocs                   # Bloc Test
+|   |   |   ├── pages                   # Application pages test
+|   |   |   ├── widgets                 # Common Widgets in Feature test
+├── helpers                             # Common Test Helpers
 ...
 ```
 
