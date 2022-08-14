@@ -172,6 +172,11 @@ Notes: **need to install [flutter_gen](https://pub.dev/packages/flutter_gen)*
 
 ```
 ...
+assets
+├── fonts                               # Non-Google fonts
+├── google_fonts                        # Google fonts offline
+├── icons                               # App icons
+├── images                              # App images
 lib
 ├── app
 |   ├── router
