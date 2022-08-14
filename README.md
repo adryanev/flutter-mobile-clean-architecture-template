@@ -28,10 +28,12 @@ Please check other branch to see other template.
 
 Using this template is easy.
 
-1. Choose template from branch
-2. Download the template via zip
-3. Rename package name from `dev.adryanev.template` to your liking.
-4. Rename the project name from `template` to your need.
+1. Choose template from branch.
+2. Press use this template button.
+3. Create your repository.
+4. Clone your repository.
+5. Rename package name from `dev.adryanev.template` to your liking.
+6. Rename the project name from `template` to your need.
 
 Freezed Code generator.
 
@@ -71,7 +73,9 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-_\*Template works on iOS, Android, Web, Linux, MacOS, and Windows._
+
+_\*Template works on iOS, Android, Web, Linux, and Windows._
+
 
 ---
 
