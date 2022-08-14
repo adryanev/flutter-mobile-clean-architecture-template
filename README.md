@@ -10,17 +10,43 @@ Powered by the [Very Good CLI][very_good_cli_link] 🤖
 
 ---
 
-## Available Templates
+## Available Templates 📃
 
 Please check other branch to see other template.
 
-- Basic + Firebase
-- Basic + Offline SQL Databases
-- Basic + Offline NoSQL Database
-- Basic + Online API
-- Basic + Online + Offline SQL Database
-- Basic + Online + Offline + Firebase
-- Complete
+- Basic + Firebase *(Not available yet)*
+- Basic + Offline SQL Databases *(Not available yet)*
+- Basic + Offline NoSQL Database *(Not available yet)*
+- Basic + Online API *(Not available yet)*
+- Basic + Online + Offline SQL Database *(Not available yet)*
+- Basic + Online + Offline + Firebase *(Not available yet)*
+- Complete *(Not available yet)*
+
+---
+
+## How to Use 🎮
+
+Using this template is easy.
+
+1. Choose template from branch
+2. Download the template via zip
+3. Rename package name from `dev.adryanev.template` to your liking.
+4. Rename the project name from `template` to your need.
+
+Freezed Code generator.
+
+This template optimizes freezed generator only to certain suffixes to improve build time.
+The available suffixes are:
+
+- `*.codegen.dart`
+- `*.model.dart`
+- `*.entity.dart`
+
+For blocs, it automaticly read inside `blocs` directory.
+
+Snackbar Flash
+
+You can use snackbar easily with `FlashCubit`. You can call `context.displayFlash(message)` to show a snackbar.
 
 ---
 
@@ -135,7 +161,8 @@ The project is already included some library to speed up the development process
 | | `google_fonts` | <https://pub.dev/packages/google_fonts> |
 | **Testing** | `mocktail` | <https://pub.dev/packages/mocktail> |
 | | `bloc_test` | <https://pub.dev/packages/bloc_test> |
-All the library above are compatible with Flutter 3.
+
+All the libraries above are compatible with Flutter 3.
 
 Notes: **need to install [flutter_gen](https://pub.dev/packages/flutter_gen)*
 
