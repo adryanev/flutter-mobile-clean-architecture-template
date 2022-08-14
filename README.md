@@ -148,6 +148,8 @@ The project is already included some library to speed up the development process
 | | `freezed_annotation` | <https://pub.dev/packages/freezed_annotation>|
 | | `change_case` | <https://pub.dev/packages/change_case> |
 | | `intl` | <https://pub.dev/packages/intl>|
+| | `uuid` | <https://pub.dev/packages/uuid> |
+| | `crypto` | <https://pub.dev/packages/crypto> |
 | **JSON** | `json_serializable` | <https://pub.dev/packages/json_serializable> |
 | | `json_annotation` | <https://pub.dev/packages/json_annotation> |
 | **Dependency Injection** | `get_it` | <https://pub.dev/packages/get_it> |

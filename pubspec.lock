@@ -184,7 +184,7 @@ packages:
     source: hosted
     version: "1.3.2"
   crypto:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: crypto
       url: "https://pub.dartlang.org"
@@ -838,6 +838,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.4"
+  uuid:
+    dependency: "direct main"
+    description:
+      name: uuid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.6"
   vector_math:
     dependency: transitive
     description:

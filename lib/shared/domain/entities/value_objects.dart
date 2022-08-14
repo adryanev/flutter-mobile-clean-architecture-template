@@ -2,16 +2,20 @@ import 'package:dartz/dartz.dart';
 import 'package:template/core/domain/entities/value_object.dart';
 import 'package:template/core/domain/entities/value_validators.dart';
 import 'package:template/core/domain/failures/value_failure.codegen.dart';
+import 'package:uuid/uuid.dart';
 
-class UniqueId extends ValueObject<int> {
-  factory UniqueId(int? input) {
+class UniqueId extends ValueObject<String> {
+  factory UniqueId(String? input) {
     assert(input != null, 'id cannot be null');
-    // karena inputan langsung berupa int, tidak ada yg perlu divalidasi
-    return UniqueId._(right(input!));
+    return UniqueId._(
+      validateUniqueId(
+        const Uuid().v4(),
+      ),
+    );
   }
   const UniqueId._(this.value);
   @override
-  final Either<ValueFailure<int>, int> value;
+  final Either<ValueFailure<String>, String> value;
 }
 
 class StringSingleLine extends ValueObject<String> {
