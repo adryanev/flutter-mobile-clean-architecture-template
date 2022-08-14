@@ -15,4 +15,6 @@ targets:
             - test
           include:
             - lib/**/blocs/**.dart
+            - lib/**.entity.dart
+            - lib/**.model.dart
             - lib/**.codegen.dart
