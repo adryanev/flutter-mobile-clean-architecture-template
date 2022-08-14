@@ -71,7 +71,9 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
+
 _\*Template works on iOS, Android, Web, Linux, and Windows._
+
 
 ---
 
