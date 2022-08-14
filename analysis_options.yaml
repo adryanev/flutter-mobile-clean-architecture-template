@@ -2,3 +2,15 @@ include: package:very_good_analysis/analysis_options.3.0.1.yaml
 linter:
   rules:
     public_member_api_docs: false
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.gen.dart"
+    - "**/*.config.dart"
+    - lib/firebase_options.dart
+    - lib/firebase_options_dev.dart
+    - lib/firebase_options_stg.dart
+  errors:
+    invalid_annotation_target: ignore
+    one_member_abstracts: ignore
