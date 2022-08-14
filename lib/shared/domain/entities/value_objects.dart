@@ -5,11 +5,10 @@ import 'package:template/core/domain/failures/value_failure.codegen.dart';
 import 'package:uuid/uuid.dart';
 
 class UniqueId extends ValueObject<String> {
-
   factory UniqueId(String input) {
     return UniqueId._(validateUniqueId(input));
   }
-  
+
   factory UniqueId.generate() {
     return UniqueId._(
       validateUniqueId(
@@ -23,7 +22,6 @@ class UniqueId extends ValueObject<String> {
 }
 
 class StringSingleLine extends ValueObject<String> {
-
   factory StringSingleLine(String input) {
     return StringSingleLine._(
       validateStringNotEmpty(input).flatMap(validateSingleLine),
