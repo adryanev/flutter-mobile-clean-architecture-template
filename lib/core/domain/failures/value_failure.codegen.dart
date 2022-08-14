@@ -14,4 +14,8 @@ class ValueFailure<T> with _$ValueFailure<T> {
     required T minimum,
     required T maximum,
   }) = ValueNotInRange<T>;
+
+  const factory ValueFailure.invalidUniqueId({
+    required T failedValue,
+  }) = ValueInvalidUniqueId<T>;
 }
