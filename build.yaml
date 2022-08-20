@@ -6,15 +6,20 @@ targets:
           ignore_for_file:
             - implicit_dynamic_parameter
       json_serializable:
+        generate_for:
+          - lib/**.codegen.dart
+          - lib/**.model.dart
         options:
           # field_rename: snake
       freezed:freezed:
         generate_for:
-          exclude:
-            - lib
-            - test
-          include:
-            - lib/**/blocs/**.dart
-            - lib/**.entity.dart
-            - lib/**.model.dart
-            - lib/**.codegen.dart
+          - lib/**/blocs/**.dart
+          - lib/**.entity.dart
+          - lib/**.model.dart
+          - lib/**.codegen.dart
+      injectable_generator:injectable_config_builder:
+        generate_for:
+          - lib/injector.dart
+      # mockito|mockBuilder:
+      #   generate_for:
+      #     - test/**.dart
