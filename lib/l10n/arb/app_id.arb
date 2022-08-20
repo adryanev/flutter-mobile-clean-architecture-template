@@ -3,5 +3,8 @@
   "counterAppBarTitle": "Penghitung",
   "@counterAppBarTitle": {
     "description": "Teks yang tampil pada AppBar di Halaman Counter"
-  }
+  },
+  "invalidEmail": "Alamat Email tidak valid",
+  "invalidPassword": "Password harus terdiri dari 8 karakter yang terdiri dari huruf dan angka.",
+  "confirmPasswordMismatch": "Konfirmasi password tidak cocok."
 }

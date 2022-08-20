@@ -1,7 +1,10 @@
 {
-    "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+  "@@locale": "en",
+  "counterAppBarTitle": "Counter",
+  "@counterAppBarTitle": {
+    "description": "Text shown in the AppBar of the Counter Page"
+  },
+  "invalidEmail": "Invalid Email Address",
+  "invalidPassword": "Password must be at least 8 characters and contain at least one letter and number",
+  "confirmPasswordMismatch": "Password confirmation not match"
 }
