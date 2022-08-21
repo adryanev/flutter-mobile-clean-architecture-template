@@ -14,13 +14,8 @@ Powered by the [Very Good CLI][very_good_cli_link] 🤖
 
 Please check other branch to see other template.
 
-- Basic + Firebase *(Not available yet)*
-- Basic + Offline SQL Databases *(Not available yet)*
-- Basic + Offline NoSQL Database *(Not available yet)*
-- Basic + Online API *(Not available yet)*
-- Basic + Online + Offline SQL Database *(Not available yet)*
-- Basic + Online + Offline + Firebase *(Not available yet)*
-- Complete *(Not available yet)*
+- Mobile (Not available yet)
+- Multiplatform (Not available yet)
 
 ---
 
