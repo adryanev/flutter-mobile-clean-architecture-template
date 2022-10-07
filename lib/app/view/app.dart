@@ -55,16 +55,14 @@ class App extends StatelessWidget {
                 ),
                 fontFamily: GoogleFonts.poppins().fontFamily,
                 textTheme:
-                    Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+                    Typography.englishLike2021.apply(fontSizeFactor: 1.sp),
               ),
               localizationsDelegates: const [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,
               ],
               supportedLocales: AppLocalizations.supportedLocales,
-              routeInformationParser: appRouter.routeInformationParser,
-              routerDelegate: appRouter.routerDelegate,
-              routeInformationProvider: appRouter.routeInformationProvider,
+              routerConfig: appRouter,
               builder: (context, widget) {
                 return MediaQuery(
                   data: MediaQuery.of(context).copyWith(textScaleFactor: 1.sp),
