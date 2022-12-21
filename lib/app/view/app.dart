@@ -55,7 +55,7 @@ class App extends StatelessWidget {
                 ),
                 fontFamily: GoogleFonts.poppins().fontFamily,
                 textTheme:
-                    Typography.englishLike2021.apply(fontSizeFactor: 1.sp),
+                    Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
               ),
               localizationsDelegates: const [
                 AppLocalizations.delegate,
