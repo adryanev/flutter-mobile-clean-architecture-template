@@ -1,18 +1,23 @@
-<!--
-  Thanks for contributing!
-
-  Provide a description of your changes below and a general summary in the title
-
-  Please look at the following checklist to ensure that your PR can be accepted quickly:
--->
-
 ## Description
 
-<!--- Describe your changes in detail -->
+What:
+
+1. What changes did you make?
+
+How:
+
+1. How do you change it?
+2. If it is a breaking change, code refactor. Explain how others should migrate to the new API.
+
+Why:
+
+1. What is the reason for the change?
+2. If it is a breaking change, code refactor. What justifies the change?
+
+
+---
 
 ## Type of Change
-
-<!--- Put an `x` in all the boxes that apply: -->
 
 - [ ] ✨ New feature (non-breaking change which adds functionality)
 - [ ] 🛠️ Bug fix (non-breaking change which fixes an issue)
@@ -21,3 +26,7 @@
 - [ ] ✅ Build configuration change
 - [ ] 📝 Documentation
 - [ ] 🗑️ Chore
+
+## Code Checklist
+
+- [ ] Tested [test_documentation_video_link_here] or a screenshot.

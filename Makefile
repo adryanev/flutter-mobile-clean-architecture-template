@@ -60,11 +60,11 @@ firebase-prod:
 
 .PHONY: analyze
 analyze:
-	@flutter analyze lib test
+	@dart analyze lib test
 
 .PHONY: format
 format:
-	@flutter format --set-exit-if-changed lib test
+	@dart format --set-exit-if-changed lib test
 
 .PHONY: prepare
 prepare: fix format analyze

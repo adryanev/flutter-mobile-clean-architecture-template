@@ -1,0 +1,36 @@
+ci/cd:
+  - .github/workflows/*
+
+core:
+  - lib/core/**
+
+assets:
+  - assets/**
+
+domain:
+  - lib/features/**/domain/**
+
+data:
+  - lib/features/**/data/**
+
+presentation:
+  - lib/features/**/presentation/**
+
+feature:
+  - lib/features/**
+
+shared:
+  - lib/shared/**
+
+test:
+  - test/**
+
+documentation:
+  - README.md
+  - ./*.md
+
+l10n:
+  - l10n/**
+
+router:
+  - lib/app/router/**

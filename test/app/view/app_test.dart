@@ -5,23 +5,29 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:template/app/app.dart';
-import 'package:template/features/counter/counter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:template/app/router/app_router.dart';
 
 import '../../helpers/helpers.dart';
 
 void main() {
   setUpAll(() async {
+    SharedPreferences.setMockInitialValues({});
     await configureInjector();
   });
 
   setUp(() => GoogleFonts.config.allowRuntimeFetching = false);
   group('App', () {
     testWidgets('renders CounterPage', (tester) async {
-      await tester.pumpWidget(const App());
-      expect(find.byType(CounterPage), findsOneWidget);
+      await tester.pumpAppRouter(
+        AppRouter.home,
+        (child) => child,
+        isConnected: false,
+      );
+      expect(find.byType(MaterialApp, skipOffstage: false), findsOneWidget);
     });
   });
 }

@@ -1,0 +1,13 @@
+name: Pull Request Labeling
+
+on:
+  - pull_request
+
+jobs:
+  triage:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/labeler@v4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
