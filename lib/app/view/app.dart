@@ -54,15 +54,13 @@ class App extends StatelessWidget {
                   accentColor: const Color(0xFF13B9FF),
                 ),
                 fontFamily: GoogleFonts.poppins().fontFamily,
-                textTheme:
-                    Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
               ),
               localizationsDelegates: const [
                 AppLocalizations.delegate,
                 GlobalMaterialLocalizations.delegate,
               ],
               supportedLocales: AppLocalizations.supportedLocales,
-              routerConfig: appRouter,
+              routerConfig: router(),
               builder: (context, widget) {
                 return MediaQuery(
                   data: MediaQuery.of(context).copyWith(textScaleFactor: 1.sp),

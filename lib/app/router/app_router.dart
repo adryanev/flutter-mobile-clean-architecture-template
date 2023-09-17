@@ -1,19 +1,23 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:template/features/counter/counter.dart';
 
-class AppRouter {
+class AppRouter extends Equatable {
   static const home = 'counter';
-  static const counter = 'counter';
+
+  @override
+  List<Object?> get props => [home];
 }
 
-final appRouter = GoRouter(
-  debugLogDiagnostics: kDebugMode || kProfileMode,
-  routes: [
-    GoRoute(
-      path: '/',
-      name: AppRouter.home,
-      builder: (context, state) => const CounterPage(),
-    )
-  ],
-);
+GoRouter router([String? initialLocation]) => GoRouter(
+      debugLogDiagnostics: kDebugMode || kProfileMode,
+      initialLocation: initialLocation ?? '/',
+      routes: [
+        GoRoute(
+          path: '/',
+          name: AppRouter.home,
+          builder: (context, state) => const CounterPage(),
+        ),
+      ],
+    );

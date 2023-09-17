@@ -66,6 +66,9 @@ unlinked_spec.ds
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
 **/android/.idea/
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
 *.jks
 
 # iOS/XCode related
