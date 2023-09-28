@@ -22,7 +22,7 @@ dependencies:
   formz: ^0.6.1
   freezed_annotation: ^2.1.0
   get_it: ^7.2.0
-  go_router: ^10.1.2
+  go_router: ^11.1.2
   google_fonts: ^6.1.0
   injectable: ^2.1.0
   intl: ^0.18.0
