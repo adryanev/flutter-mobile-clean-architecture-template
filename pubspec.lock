@@ -473,10 +473,10 @@ packages:
     dependency: "direct dev"
     description:
       name: injectable_generator
-      sha256: "5c21787f854dfb94c9e50c43788f93232867ad80ada38a6db81e0bbb51ee5905"
+      sha256: f9d3c05f0938403f79ad6c6d23ec8e37a7a05ad980b1bf9399493f3e41845788
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.0"
+    version: "2.4.1"
   intl:
     dependency: "direct main"
     description:
