@@ -43,8 +43,6 @@ class App extends StatelessWidget {
         ],
         child: ScreenUtilInit(
           designSize: const Size(ScreenUtilSize.width, ScreenUtilSize.height),
-          minTextAdapt: true,
-          splitScreenMode: true,
           builder: (context, child) {
             return MaterialApp.router(
               scaffoldMessengerKey: rootScaffoldMessengerKey,
