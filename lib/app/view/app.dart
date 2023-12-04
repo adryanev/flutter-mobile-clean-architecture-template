@@ -63,7 +63,8 @@ class App extends StatelessWidget {
               routerConfig: router(),
               builder: (context, widget) {
                 return MediaQuery(
-                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.sp),
+                  data: MediaQuery.of(context)
+                      .copyWith(textScaler: TextScaler.noScaling),
                   child: widget!,
                 );
               },
