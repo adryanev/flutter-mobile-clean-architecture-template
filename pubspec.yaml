@@ -40,7 +40,7 @@ dev_dependencies:
   freezed: ^2.4.5
   injectable_generator: ^2.4.1
   json_serializable: ^6.3.1
-  mocktail: ^1.0.1
+  mocktail: ^1.0.2
   very_good_analysis: ^5.1.0
 
 flutter_gen:
