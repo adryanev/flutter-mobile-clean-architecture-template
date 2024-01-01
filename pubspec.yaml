@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   bloc: ^8.1.2
-  change_case: ^1.0.2
+  change_case: ^2.0.1
   crypto: ^3.0.2
   dartz: ^0.10.1
   equatable: ^2.0.3
