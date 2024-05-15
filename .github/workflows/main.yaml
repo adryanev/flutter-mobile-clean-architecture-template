@@ -20,4 +20,4 @@ jobs:
     with:
       flutter_channel: stable
       min_coverage: 0
-      setup: "dart run build_runner build --delete-conflicting-outputs"
+      setup: "flutter pub global activate very_good_cli && export PATH=$PATH:$HOME/.pub-cache/bin && dart run build_runner build --delete-conflicting-outputs"
