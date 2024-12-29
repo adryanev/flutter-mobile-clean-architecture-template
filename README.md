@@ -30,16 +30,6 @@ Using this template is easy.
 5. Rename package name from `dev.adryanev.template` to your liking.
 6. Rename the project name from `template` to your need.
 
-Freezed Code generator.
-
-This template optimizes freezed generator only to certain suffixes to improve build time.
-The available suffixes are:
-
-- `*.codegen.dart`
-- `*.model.dart`
-- `*.entity.dart`
-
-For blocs, it automaticly read inside `blocs` directory.
 
 Snackbar Flash
 
@@ -144,13 +134,11 @@ The project is already included some library to speed up the development process
 | | `rxdart` | <https://pub.dev/packages/rxdart> |
 | | `equatable` | <https://pub.dev/packages/equatable> |
 | | `freezed` | <https://pub.dev/packages/freezed> |
-| | `freezed_annotation` | <https://pub.dev/packages/freezed_annotation>|
 | | `change_case` | <https://pub.dev/packages/change_case> |
 | | `intl` | <https://pub.dev/packages/intl>|
 | | `uuid` | <https://pub.dev/packages/uuid> |
 | | `crypto` | <https://pub.dev/packages/crypto> |
-| **JSON** | `json_serializable` | <https://pub.dev/packages/json_serializable> |
-| | `json_annotation` | <https://pub.dev/packages/json_annotation> |
+
 | **Dependency Injection** | `get_it` | <https://pub.dev/packages/get_it> |
 | | `injectable` | <https://pub.dev/packages/injectable> |
 | | `injectable_generator` | <https://pub.dev/packages/injectable_generator> |

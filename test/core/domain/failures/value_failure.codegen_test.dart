@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:template/core/domain/failures/value_failure.codegen.dart';
+import 'package:template/core/domain/failures/value_failure.dart';
 
 void main() {
   // Define a group of tests for the ValueFailure class
@@ -11,7 +11,7 @@ void main() {
 
       // Assert that the failure is an empty with the given failedValue
       expect(failure, equals(const ValueFailure.empty(failedValue: '')));
-      expect(failure.failedValue, '');
+      expect((failure as ValueFailureEmpty).failedValue, '');
     });
 
     // Define a test case for the multiLine constructor and failedValue property
@@ -26,7 +26,7 @@ void main() {
           const ValueFailure.multiLine(failedValue: 'foo\nbar'),
         ),
       );
-      expect(failure.failedValue, 'foo\nbar');
+      expect((failure as ValueFailureMultiLine).failedValue, 'foo\nbar');
     });
 
     // Define a test case for the notInRange constructor and failedValue,
@@ -51,9 +51,9 @@ void main() {
           ),
         ),
       );
-      expect(failure.failedValue, 0);
-      expect((failure as ValueNotInRange).minimum, 1);
-      expect((failure as ValueNotInRange).maximum, 10);
+      expect((failure as ValueFailureNotInRange).failedValue, 0);
+      expect((failure as ValueFailureNotInRange).minimum, 1);
+      expect((failure as ValueFailureNotInRange).maximum, 10);
     });
 
     // Define a test case for the invalidUniqueId constructor
@@ -72,7 +72,7 @@ void main() {
           ),
         ),
       );
-      expect(failure.failedValue, '123');
+      expect((failure as ValueFailureInvalidUniqueId).failedValue, '123');
     });
   });
 }

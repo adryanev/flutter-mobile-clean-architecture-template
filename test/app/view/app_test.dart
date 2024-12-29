@@ -23,7 +23,7 @@ void main() {
   group('App', () {
     testWidgets('renders CounterPage', (tester) async {
       await tester.pumpAppRouter(
-        AppRouter.home,
+        '/',
         (child) => child,
         isConnected: false,
       );

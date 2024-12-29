@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:template/core/domain/failures/failure.codegen.dart';
+import 'package:template/core/domain/failures/failure.dart';
 
 abstract class UseCase<ReturnValue, Params extends Equatable> {
   const UseCase();
