@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:template/core/domain/failures/errors.dart';
-import 'package:template/core/domain/failures/value_failure.codegen.dart';
+import 'package:template/core/domain/failures/value_failure.dart';
 
 void main() {
   // Define a group of tests for the UnexpectedValueError class

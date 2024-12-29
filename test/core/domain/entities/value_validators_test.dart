@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:template/core/domain/entities/value_validators.dart';
-import 'package:template/core/domain/failures/value_failure.codegen.dart';
+import 'package:template/core/domain/failures/value_failure.dart';
 import 'package:template/core/extensions/dartz_extensions.dart';
 
 void main() {
@@ -53,7 +53,7 @@ void main() {
           final failure = validated.getLeft();
           // assert
           expect(validated.isLeft(), isTrue);
-          expect(failure, isA<ValueInvalidUniqueId<String>>());
+          expect(failure, isA<ValueFailureInvalidUniqueId<String>>());
           expect(output, isNull);
         },
       );

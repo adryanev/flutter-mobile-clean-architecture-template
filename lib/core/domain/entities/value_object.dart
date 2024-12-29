@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meta/meta.dart';
 import 'package:template/core/domain/failures/errors.dart';
-import 'package:template/core/domain/failures/value_failure.codegen.dart';
+import 'package:template/core/domain/failures/value_failure.dart';
 
 // ignore: one_member_abstracts
 abstract class IValidatable {

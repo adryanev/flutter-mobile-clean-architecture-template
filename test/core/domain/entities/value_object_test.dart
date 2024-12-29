@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:template/core/domain/entities/value_object.dart';
 import 'package:template/core/domain/failures/errors.dart';
-import 'package:template/core/domain/failures/value_failure.codegen.dart';
+import 'package:template/core/domain/failures/value_failure.dart';
 
 // Define a subclass of ValueObject for testing purposes
 class TestValueObject extends ValueObject<String> {

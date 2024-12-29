@@ -30,17 +30,6 @@ Using this template is easy.
 5. Rename package name from `dev.adryanev.template` to your liking.
 6. Rename the project name from `template` to your need.
 
-Freezed Code generator.
-
-This template optimizes freezed generator only to certain suffixes to improve build time.
-The available suffixes are:
-
-- `*.codegen.dart`
-- `*.model.dart`
-- `*.entity.dart`
-
-For blocs, it automaticly read inside `blocs` directory.
-
 Snackbar Flash
 
 You can use snackbar easily with `FlashCubit`. You can call `context.displayFlash(message)` to show a snackbar.
@@ -68,9 +57,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-
-_\*Template works on iOS, Android, Web, Linux, and Windows._
-
+*\*Template works on iOS, Android, Web, Linux, and Windows.*
 
 ---
 
@@ -131,8 +118,8 @@ $ open coverage/index.html
 
 The project is already included some library to speed up the development process.
 
-| Category | Library Name | Link
-|--|--|--
+| Category | Library Name | Link |
+|--|--|--|
 | **State management** | `bloc` | <https://pub.dev/packages/bloc> |
 | | `flutter_bloc` | <https://pub.dev/packages/flutter_bloc> |
 | | `bloc_concurrency` | <https://pub.dev/packages/bloc_concurrency> |
@@ -143,14 +130,11 @@ The project is already included some library to speed up the development process
 | **Languange Feature** | `dartz` | <https://pub.dev/packages/dartz>|
 | | `rxdart` | <https://pub.dev/packages/rxdart> |
 | | `equatable` | <https://pub.dev/packages/equatable> |
-| | `freezed` | <https://pub.dev/packages/freezed> |
-| | `freezed_annotation` | <https://pub.dev/packages/freezed_annotation>|
 | | `change_case` | <https://pub.dev/packages/change_case> |
 | | `intl` | <https://pub.dev/packages/intl>|
 | | `uuid` | <https://pub.dev/packages/uuid> |
 | | `crypto` | <https://pub.dev/packages/crypto> |
-| **JSON** | `json_serializable` | <https://pub.dev/packages/json_serializable> |
-| | `json_annotation` | <https://pub.dev/packages/json_annotation> |
+
 | **Dependency Injection** | `get_it` | <https://pub.dev/packages/get_it> |
 | | `injectable` | <https://pub.dev/packages/injectable> |
 | | `injectable_generator` | <https://pub.dev/packages/injectable_generator> |
@@ -172,7 +156,7 @@ Notes: **need to install [flutter_gen](https://pub.dev/packages/flutter_gen)*
 
 ## Project Structure 🏛
 
-```
+```tree
 ...
 assets
 ├── fonts                               # Non-Google fonts
@@ -241,7 +225,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 
 ### Adding Strings
 
-1. To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
+To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
 
 ```arb
 {
@@ -253,7 +237,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 }
 ```
 
-2. Then add a new key/value and description
+Then add a new key/value and description
 
 ```arb
 {
@@ -269,7 +253,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 }
 ```
 
-3. Use the new string
+Use the new string
 
 ```dart
 import 'package:template/l10n/l10n.dart';
@@ -289,26 +273,26 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
     ...
 
     <key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>id</string>
-	</array>
+ <array>
+  <string>en</string>
+  <string>id</string>
+ </array>
 
     ...
 ```
 
 ### Adding Translations
 
-1. For each supported locale, add a new ARB file in `lib/l10n/arb`.
+For each supported locale, add a new ARB file in `lib/l10n/arb`.
 
-```
+```tree
 ├── l10n
 │   ├── arb
 │   │   ├── app_en.arb
 │   │   └── app_id.arb
 ```
 
-2. Add the translated strings to each `.arb` file:
+Add the translated strings to each `.arb` file:
 
 `app_en.arb`
 
@@ -333,6 +317,61 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
     }
 }
 ```
+
+## Migration Guide
+
+This section provides an overview of the breaking changes and steps needed to migrate from the previous version of this template to the latest release.
+
+### 1. Flutter Version & Tooling
+
+- A new file (`.fvmrc`) has been introduced to specify the Flutter version. By default, it locks the project to **stable**. Ensure that [FVM](https://fvm.app/) is installed and run `fvm use` in the project directory if you're using FVM.
+- Update your local Flutter SDK to `3.6.x` or higher as specified in `pubspec.yaml` (`sdk: ">=3.6.0 <4.0.0"`).
+
+### 2. Removal of Freezed Code Generation
+
+- All code-generation files such as `*.codegen.dart` for Freezed and JSON serializations have been removed in favor of manually defined classes and sealed classes.
+- Replace any references to the older generated `ValueFailure` and `Failure` classes with the new `Failure` or `ValueFailure` sealed classes introduced in `lib/core/domain/failures/failure.dart` and `lib/core/domain/failures/value_failure.dart`.
+
+### 3. Updated Failure and ValueFailure Classes
+
+- The previous Freezed-based `Failure` and `ValueFailure` have been replaced with sealed classes:
+  - **Failure** now has `localFailure` and `serverFailure`.
+  - **ValueFailure** includes constructors like `empty`, `multiLine`, `notInRange`, and `invalidUniqueId`.
+- Check your test suite to ensure your assertions match the new class names (e.g., `ValueFailureInvalidUniqueId` instead of `ValueInvalidUniqueId`).
+
+### 4. Flash State Refactor
+
+- The `FlashState` class has been refactored from Freezed to a sealed class. If your UI logic relied on the Freezed `.when` or `.maybeWhen` methods, replace them with a `switch/case` or explicit type checks on `FlashAppeared` and `FlashDisappeared`.
+
+### 5. Android Gradle Build Updates
+
+- Gradle has been upgraded from version **7.4** to **8.3**.
+- Java source and target compatibility have been set to version 17. Ensure your local environment supports Java 17.
+- The plugin management in `android/settings.gradle` and `android/build.gradle` is updated to enable new Gradle features. If you maintain custom build scripts or rely on old plugin versions, update them accordingly.
+
+### 6. Dependency Updates
+
+- Many dependencies have been upgraded (e.g., `bloc`, `flutter_bloc`, `get_it`, `equatable`, etc.). Check `pubspec.yaml` for version changes.
+- Remove references to `freezed_annotation` and `json_annotation` if you no longer need them for code generation.
+
+### 7. Build Configuration Changes
+
+- The `build.yaml` file no longer configures builders for Freezed or JSON serializable. If you were depending on those builders, consider using alternative solutions or re-adding them as needed.
+
+### 8. Testing Implications
+
+- Update your test imports to the new `failure.dart` and `value_failure.dart` files.
+- If you used specialized methods from Freezed in your tests (`maybeMap`, etc.), replace them with explicit class checks or a `switch` on the new sealed classes.
+
+### 9. Post-Migration Checks
+
+- After updating your code and tests, run `flutter pub get` (or `fvm flutter pub get` if you use FVM) and then execute your test suite (`flutter test`) to ensure everything is working as expected.
+- Verify your app runs correctly on both iOS and Android devices or simulators/emulators.
+- If you used code generation for features not covered in this project’s new approach, you may need to add alternative solutions or manual code stubs.
+
+---
+
+Following these steps should ensure a smooth transition to the latest Flutter version and the refactored architecture. If you have any questions or encounter issues during migration, feel free to open an issue or reach out to the team!
 
 [coverage_badge]: coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html

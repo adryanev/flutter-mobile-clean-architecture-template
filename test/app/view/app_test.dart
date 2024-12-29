@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:template/app/router/app_router.dart';
 
 import '../../helpers/helpers.dart';
 
@@ -23,7 +22,7 @@ void main() {
   group('App', () {
     testWidgets('renders CounterPage', (tester) async {
       await tester.pumpAppRouter(
-        AppRouter.home,
+        '/',
         (child) => child,
         isConnected: false,
       );

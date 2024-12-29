@@ -32,12 +32,14 @@ class App extends StatelessWidget {
         listeners: [
           BlocListener<FlashCubit, FlashState>(
             listener: (context, state) {
-              state.when(
-                disappeared: () => null,
-                appeared: (message) => context.showSnackbar(
-                  message: message,
-                ),
-              );
+              switch (state) {
+                case FlashDisappeared():
+                  break;
+                case FlashAppeared():
+                  context.showSnackbar(
+                    message: state.message,
+                  );
+              }
             },
           ),
         ],
