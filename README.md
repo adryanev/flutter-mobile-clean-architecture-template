@@ -134,7 +134,6 @@ The project is already included some library to speed up the development process
 | | `intl` | <https://pub.dev/packages/intl>|
 | | `uuid` | <https://pub.dev/packages/uuid> |
 | | `crypto` | <https://pub.dev/packages/crypto> |
-
 | **Dependency Injection** | `get_it` | <https://pub.dev/packages/get_it> |
 | | `injectable` | <https://pub.dev/packages/injectable> |
 | | `injectable_generator` | <https://pub.dev/packages/injectable_generator> |
