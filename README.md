@@ -30,7 +30,6 @@ Using this template is easy.
 5. Rename package name from `dev.adryanev.template` to your liking.
 6. Rename the project name from `template` to your need.
 
-
 Snackbar Flash
 
 You can use snackbar easily with `FlashCubit`. You can call `context.displayFlash(message)` to show a snackbar.
@@ -58,9 +57,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-
-_\*Template works on iOS, Android, Web, Linux, and Windows._
-
+*\*Template works on iOS, Android, Web, Linux, and Windows.*
 
 ---
 
@@ -121,8 +118,8 @@ $ open coverage/index.html
 
 The project is already included some library to speed up the development process.
 
-| Category | Library Name | Link
-|--|--|--
+| Category | Library Name | Link |
+|--|--|--|
 | **State management** | `bloc` | <https://pub.dev/packages/bloc> |
 | | `flutter_bloc` | <https://pub.dev/packages/flutter_bloc> |
 | | `bloc_concurrency` | <https://pub.dev/packages/bloc_concurrency> |
@@ -133,7 +130,6 @@ The project is already included some library to speed up the development process
 | **Languange Feature** | `dartz` | <https://pub.dev/packages/dartz>|
 | | `rxdart` | <https://pub.dev/packages/rxdart> |
 | | `equatable` | <https://pub.dev/packages/equatable> |
-| | `freezed` | <https://pub.dev/packages/freezed> |
 | | `change_case` | <https://pub.dev/packages/change_case> |
 | | `intl` | <https://pub.dev/packages/intl>|
 | | `uuid` | <https://pub.dev/packages/uuid> |
@@ -160,7 +156,7 @@ Notes: **need to install [flutter_gen](https://pub.dev/packages/flutter_gen)*
 
 ## Project Structure 🏛
 
-```
+```tree
 ...
 assets
 ├── fonts                               # Non-Google fonts
@@ -229,7 +225,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 
 ### Adding Strings
 
-1. To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
+To add a new localizable string, open the `app_en.arb` file at `lib/l10n/arb/app_en.arb`.
 
 ```arb
 {
@@ -241,7 +237,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 }
 ```
 
-2. Then add a new key/value and description
+Then add a new key/value and description
 
 ```arb
 {
@@ -257,7 +253,7 @@ This project relies on [flutter_localizations][flutter_localizations_link] and f
 }
 ```
 
-3. Use the new string
+Use the new string
 
 ```dart
 import 'package:template/l10n/l10n.dart';
@@ -277,26 +273,26 @@ Update the `CFBundleLocalizations` array in the `Info.plist` at `ios/Runner/Info
     ...
 
     <key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>id</string>
-	</array>
+ <array>
+  <string>en</string>
+  <string>id</string>
+ </array>
 
     ...
 ```
 
 ### Adding Translations
 
-1. For each supported locale, add a new ARB file in `lib/l10n/arb`.
+For each supported locale, add a new ARB file in `lib/l10n/arb`.
 
-```
+```tree
 ├── l10n
 │   ├── arb
 │   │   ├── app_en.arb
 │   │   └── app_id.arb
 ```
 
-2. Add the translated strings to each `.arb` file:
+Add the translated strings to each `.arb` file:
 
 `app_en.arb`
 
