@@ -1,4 +1,5 @@
 sealed class ValueFailure<T> {
+  const ValueFailure();
   const factory ValueFailure.notInRange({
     required T failedValue,
     required T minimum,
@@ -8,16 +9,10 @@ sealed class ValueFailure<T> {
   const factory ValueFailure.invalidUniqueId({
     required T failedValue,
   }) = ValueFailureInvalidUniqueId<T>;
-  const ValueFailure();
   const factory ValueFailure.empty({required T failedValue}) =
       ValueFailureEmpty<T>;
   const factory ValueFailure.multiLine({required T failedValue}) =
       ValueFailureMultiLine<T>;
-
-  @override
-  String toString() {
-    return 'ValueFailure<$T>($runtimeType)';
-  }
 }
 
 class ValueFailureEmpty<T> extends ValueFailure<T> {
