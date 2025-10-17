@@ -19,7 +19,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   flutter_localizations:
     sdk: flutter
-  flutter_native_splash: ^2.4.3
+  flutter_native_splash: ^2.4.7
   flutter_screenutil: ^5.9.3
   formz: ^0.8.0
   get_it: ^8.0.3
