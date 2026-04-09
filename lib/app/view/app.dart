@@ -23,11 +23,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<FlashCubit>(),
-        ),
-      ],
+      providers: [BlocProvider(create: (context) => getIt<FlashCubit>())],
       child: MultiBlocListener(
         listeners: [
           BlocListener<FlashCubit, FlashState>(
@@ -36,9 +32,7 @@ class App extends StatelessWidget {
                 case FlashDisappeared():
                   break;
                 case FlashAppeared():
-                  context.showSnackbar(
-                    message: state.message,
-                  );
+                  context.showSnackbar(message: state.message);
               }
             },
           ),
@@ -60,8 +54,9 @@ class App extends StatelessWidget {
               routerConfig: router(),
               builder: (context, widget) {
                 return MediaQuery(
-                  data: MediaQuery.of(context)
-                      .copyWith(textScaler: TextScaler.noScaling),
+                  data: MediaQuery.of(
+                    context,
+                  ).copyWith(textScaler: TextScaler.noScaling),
                   child: widget!,
                 );
               },

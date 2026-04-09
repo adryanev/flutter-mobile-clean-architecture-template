@@ -24,9 +24,4 @@ class DateTimeFormat {
   static DateFormat get hourMinutes => DateFormat.Hm();
 }
 
-enum MessageType {
-  info,
-  warning,
-  success,
-  danger,
-}
+enum MessageType { info, warning, success, danger }

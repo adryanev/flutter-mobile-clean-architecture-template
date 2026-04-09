@@ -46,32 +46,24 @@ void main() {
         expect(form.isValid, isFalse);
         expect(
           form.displayError,
-          equals(
-            PasswordConfirmationValidationError.mismatch,
-          ),
+          equals(PasswordConfirmationValidationError.mismatch),
         );
       },
     );
 
-    test(
-      'should return status dirty and not valid when mismatch',
-      () async {
-        // arrange
-        const oldPassword = 'Asdf1234';
-        const newPassword = 'Asdf1345';
-        // act
-        const form = PasswordConfirmationInput.dirty(oldPassword, newPassword);
-        // assert
-        expect(form.isPure, isFalse);
-        expect(form.value, equals(newPassword));
-        expect(form.isValid, isFalse);
-        expect(
-          form.error,
-          equals(PasswordConfirmationValidationError.mismatch),
-        );
-        expect(form.isNotValid, isTrue);
-      },
-    );
+    test('should return status dirty and not valid when mismatch', () async {
+      // arrange
+      const oldPassword = 'Asdf1234';
+      const newPassword = 'Asdf1345';
+      // act
+      const form = PasswordConfirmationInput.dirty(oldPassword, newPassword);
+      // assert
+      expect(form.isPure, isFalse);
+      expect(form.value, equals(newPassword));
+      expect(form.isValid, isFalse);
+      expect(form.error, equals(PasswordConfirmationValidationError.mismatch));
+      expect(form.isNotValid, isTrue);
+    });
     test(
       'should return status dirty and valid when initiated with value',
       () async {

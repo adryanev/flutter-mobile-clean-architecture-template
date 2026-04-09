@@ -6,9 +6,8 @@ sealed class ValueFailure<T> {
     required T maximum,
   }) = ValueFailureNotInRange<T>;
 
-  const factory ValueFailure.invalidUniqueId({
-    required T failedValue,
-  }) = ValueFailureInvalidUniqueId<T>;
+  const factory ValueFailure.invalidUniqueId({required T failedValue}) =
+      ValueFailureInvalidUniqueId<T>;
   const factory ValueFailure.empty({required T failedValue}) =
       ValueFailureEmpty<T>;
   const factory ValueFailure.multiLine({required T failedValue}) =

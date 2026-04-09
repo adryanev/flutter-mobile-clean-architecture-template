@@ -10,11 +10,7 @@ class UniqueId extends ValueObject<String> {
   }
 
   factory UniqueId.generate() {
-    return UniqueId._(
-      validateUniqueId(
-        const Uuid().v4(),
-      ),
-    );
+    return UniqueId._(validateUniqueId(const Uuid().v4()));
   }
   const UniqueId._(this.value);
   @override

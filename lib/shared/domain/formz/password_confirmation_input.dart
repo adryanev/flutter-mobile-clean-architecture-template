@@ -6,9 +6,9 @@ enum PasswordConfirmationValidationError { mismatch }
 class PasswordConfirmationInput
     extends FormzInput<String, PasswordConfirmationValidationError> {
   const PasswordConfirmationInput.pure([super.value = '', this._password = ''])
-      : super.pure();
+    : super.pure();
   const PasswordConfirmationInput.dirty(this._password, [super.value = ''])
-      : super.dirty();
+    : super.dirty();
 
   final String _password;
   @override

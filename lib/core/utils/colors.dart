@@ -20,9 +20,6 @@ class AppColor {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
     colors: [blue, blueDarker],
-    stops: [
-      0,
-      0.7,
-    ],
+    stops: [0, 0.7],
   );
 }

@@ -11,13 +11,13 @@ class AppRouter extends Equatable {
 }
 
 GoRouter router([String? initialLocation]) => GoRouter(
-      debugLogDiagnostics: kDebugMode || kProfileMode,
-      initialLocation: initialLocation ?? '/',
-      routes: [
-        GoRoute(
-          path: '/',
-          name: AppRouter.home,
-          builder: (context, state) => const CounterPage(),
-        ),
-      ],
-    );
+  debugLogDiagnostics: kDebugMode || kProfileMode,
+  initialLocation: initialLocation ?? '/',
+  routes: [
+    GoRoute(
+      path: '/',
+      name: AppRouter.home,
+      builder: (context, state) => const CounterPage(),
+    ),
+  ],
+);

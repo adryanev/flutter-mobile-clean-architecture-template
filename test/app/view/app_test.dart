@@ -21,11 +21,7 @@ void main() {
   setUp(() => GoogleFonts.config.allowRuntimeFetching = false);
   group('App', () {
     testWidgets('renders CounterPage', (tester) async {
-      await tester.pumpAppRouter(
-        '/',
-        (child) => child,
-        isConnected: false,
-      );
+      await tester.pumpAppRouter('/', (child) => child, isConnected: false);
       expect(find.byType(MaterialApp, skipOffstage: false), findsOneWidget);
     });
   });

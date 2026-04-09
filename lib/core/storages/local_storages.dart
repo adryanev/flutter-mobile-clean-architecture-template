@@ -14,15 +14,11 @@ class LocalStorageImpl implements LocalStorage {
 
   @override
   Future<String?> getApiKey() {
-    return Future.value(
-      _storage.getString(_apiKeyKey),
-    );
+    return Future.value(_storage.getString(_apiKeyKey));
   }
 
   @override
   Future<void> setApiKey(String apiKey) async {
-    await Future.value(
-      _storage.setString(_apiKeyKey, apiKey),
-    );
+    await Future.value(_storage.setString(_apiKeyKey, apiKey));
   }
 }

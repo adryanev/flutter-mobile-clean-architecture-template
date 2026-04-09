@@ -21,13 +21,15 @@ void main() {
     mockFlashCubit = MockFlashCubit();
     // Register the fallback values for the mocktail library
     registerFallbackValue(const FlashState.disappeared());
-    when(() => mockFlashCubit.displayFlash('Hello'))
-        .thenAnswer((invocation) async {});
+    when(
+      () => mockFlashCubit.displayFlash('Hello'),
+    ).thenAnswer((invocation) async {});
   });
 
   // Test the displayFlash method
-  testWidgets('displayFlash should call displayFlash on the cubit',
-      (tester) async {
+  testWidgets('displayFlash should call displayFlash on the cubit', (
+    tester,
+  ) async {
     // Arrange: create a test widget that uses the extension method
     final testWidget = MaterialApp(
       home: BlocProvider<FlashCubit>(

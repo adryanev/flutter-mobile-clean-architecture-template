@@ -22,39 +22,39 @@ void main() {
       // Assert that the failure is a multiLine with the given failedValue
       expect(
         failure,
-        equals(
-          const ValueFailure.multiLine(failedValue: 'foo\nbar'),
-        ),
+        equals(const ValueFailure.multiLine(failedValue: 'foo\nbar')),
       );
       expect((failure as ValueFailureMultiLine).failedValue, 'foo\nbar');
     });
 
     // Define a test case for the notInRange constructor and failedValue,
     //minimum, and maximum properties
-    test('notInRange should have failedValue, minimum, and maximum properties',
-        () {
-      // Create a sample notInRange object
-      const failure = ValueFailure.notInRange(
-        failedValue: 0,
-        minimum: 1,
-        maximum: 10,
-      );
+    test(
+      'notInRange should have failedValue, minimum, and maximum properties',
+      () {
+        // Create a sample notInRange object
+        const failure = ValueFailure.notInRange(
+          failedValue: 0,
+          minimum: 1,
+          maximum: 10,
+        );
 
-      // Assert that the failure is a notInRange with the given properties
-      expect(
-        failure,
-        equals(
-          const ValueFailure.notInRange(
-            failedValue: 0,
-            minimum: 1,
-            maximum: 10,
+        // Assert that the failure is a notInRange with the given properties
+        expect(
+          failure,
+          equals(
+            const ValueFailure.notInRange(
+              failedValue: 0,
+              minimum: 1,
+              maximum: 10,
+            ),
           ),
-        ),
-      );
-      expect((failure as ValueFailureNotInRange).failedValue, 0);
-      expect((failure as ValueFailureNotInRange).minimum, 1);
-      expect((failure as ValueFailureNotInRange).maximum, 10);
-    });
+        );
+        expect((failure as ValueFailureNotInRange).failedValue, 0);
+        expect((failure as ValueFailureNotInRange).minimum, 1);
+        expect((failure as ValueFailureNotInRange).maximum, 10);
+      },
+    );
 
     // Define a test case for the invalidUniqueId constructor
     //and failedValue property
@@ -66,11 +66,7 @@ void main() {
       //with the given failedValue
       expect(
         failure,
-        equals(
-          const ValueFailure.invalidUniqueId(
-            failedValue: '123',
-          ),
-        ),
+        equals(const ValueFailure.invalidUniqueId(failedValue: '123')),
       );
       expect((failure as ValueFailureInvalidUniqueId).failedValue, '123');
     });

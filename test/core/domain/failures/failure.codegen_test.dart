@@ -13,9 +13,7 @@ void main() {
       // Assert that the failure is a localFailure with the given message
       expect(
         failure,
-        equals(
-          const Failure.localFailure(message: 'Local failure'),
-        ),
+        equals(const Failure.localFailure(message: 'Local failure')),
       );
       expect((failure as LocalFailure).message, 'Local failure');
     });
@@ -28,9 +26,7 @@ void main() {
       // Assert that the failure is a serverFailure with the given message
       expect(
         failure,
-        equals(
-          const Failure.serverFailure(message: 'Server failure'),
-        ),
+        equals(const Failure.serverFailure(message: 'Server failure')),
       );
       expect((failure as ServerFailure).message, 'Server failure');
     });

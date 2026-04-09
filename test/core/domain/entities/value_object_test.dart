@@ -19,9 +19,7 @@ void main() {
       // Create a valid and an invalid TestValueObject
       final valid = TestValueObject(right('valid'));
       final invalid = TestValueObject(
-        left(
-          const ValueFailure.empty(failedValue: 'invalid'),
-        ),
+        left(const ValueFailure.empty(failedValue: 'invalid')),
       );
 
       // Assert that they implement IValidatable interface
@@ -34,9 +32,7 @@ void main() {
       // Create a valid and an invalid TestValueObject
       final valid = TestValueObject(right('valid'));
       final invalid = TestValueObject(
-        left(
-          const ValueFailure.empty(failedValue: 'invalid'),
-        ),
+        left(const ValueFailure.empty(failedValue: 'invalid')),
       );
 
       // Assert that getOrCrash returns the value for the valid object
@@ -51,9 +47,7 @@ void main() {
       // Create a valid and an invalid TestValueObject
       final valid = TestValueObject(right('valid'));
       final invalid = TestValueObject(
-        left(
-          const ValueFailure.empty(failedValue: 'invalid'),
-        ),
+        left(const ValueFailure.empty(failedValue: 'invalid')),
       );
 
       // Assert that getOrElse returns the value for the valid object
@@ -68,9 +62,7 @@ void main() {
       // Create a valid and an invalid TestValueObject
       final valid = TestValueObject(right('valid'));
       final invalid = TestValueObject(
-        left(
-          const ValueFailure.empty(failedValue: 'invalid'),
-        ),
+        left(const ValueFailure.empty(failedValue: 'invalid')),
       );
 
       // Assert that failureOrUnit returns unit for the valid object
@@ -80,9 +72,7 @@ void main() {
       expect(
         invalid.failureOrUnit,
         left<ValueFailure<String>, Unit>(
-          const ValueFailure.empty(
-            failedValue: 'invalid',
-          ),
+          const ValueFailure.empty(failedValue: 'invalid'),
         ),
       );
     });
@@ -92,9 +82,7 @@ void main() {
       // Create a valid and an invalid TestValueObject
       final valid = TestValueObject(right('valid'));
       final invalid = TestValueObject(
-        left(
-          const ValueFailure.empty(failedValue: 'invalid'),
-        ),
+        left(const ValueFailure.empty(failedValue: 'invalid')),
       );
 
       // Assert that isValid returns true for the valid object
