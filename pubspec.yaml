@@ -29,7 +29,7 @@ dependencies:
   json_annotation: ^4.9.0
   meta: ^1.16.0
   rxdart: ^0.28.0
-  shared_preferences: ^2.3.4
+  shared_preferences: ^2.5.5
   uuid: ^4.5.1
 
 dev_dependencies:
