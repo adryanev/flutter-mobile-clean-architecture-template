@@ -11,7 +11,7 @@ dependencies:
   change_case: ^2.1.0
   collection: ^1.19.1
   crypto: ^3.0.6
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.9
   dartz: ^0.10.1
   equatable: ^2.0.7
   flutter:
