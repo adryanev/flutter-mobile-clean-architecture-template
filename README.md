@@ -57,7 +57,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-*\*Template works on iOS, Android, Web, Linux, and Windows.*
+*\*Template works on iOS and Android.*
 
 ---
 
@@ -122,13 +122,11 @@ The project is already included some library to speed up the development process
 |--|--|--|
 | **State management** | `bloc` | <https://pub.dev/packages/bloc> |
 | | `flutter_bloc` | <https://pub.dev/packages/flutter_bloc> |
-| | `bloc_concurrency` | <https://pub.dev/packages/bloc_concurrency> |
+| | `rxdart` | <https://pub.dev/packages/rxdart> |
 | **Router** | `go_router`  | <https://pub.dev/packages/go_router> |
 | **Code Generator** | `build_runner` | <https://pub.dev/packages/build_runner> |
 | | `flutter_gen_runner`* | <https://pub.dev/packages/flutter_gen_runner> |
-| | `flutter_native_splash` | <https://pub.dev/packages/flutter_native_splash> |
-| **Languange Feature** | `dartz` | <https://pub.dev/packages/dartz>|
-| | `rxdart` | <https://pub.dev/packages/rxdart> |
+| **Language Feature** | `dartz` | <https://pub.dev/packages/dartz>|
 | | `equatable` | <https://pub.dev/packages/equatable> |
 | | `change_case` | <https://pub.dev/packages/change_case> |
 | | `intl` | <https://pub.dev/packages/intl>|
@@ -138,16 +136,13 @@ The project is already included some library to speed up the development process
 | | `injectable` | <https://pub.dev/packages/injectable> |
 | | `injectable_generator` | <https://pub.dev/packages/injectable_generator> |
 | **Local Storage** | `shared_preferences` | <https://pub.dev/packages/shared_preferences> |
-| **Logging** | `logging` | <https://pub.dev/packages/logging> |
-| **Form Validation** | `formz` | <https://pub.dev/packages/formz/versions/0.5.0-dev.1> |
-| **Widgets** | `flutter_hooks` | <https://pub.dev/packages/flutter_hooks> |
-| | `flutter_screenutil` | <https://pub.dev/packages/flutter_screenutil> |
-| | `flutter_svg` | <https://pub.dev/packages/flutter_svg>  |
+| **Form Validation** | `formz` | <https://pub.dev/packages/formz> |
+| **Widgets** | `flutter_screenutil` | <https://pub.dev/packages/flutter_screenutil> |
 | | `google_fonts` | <https://pub.dev/packages/google_fonts> |
 | **Testing** | `mocktail` | <https://pub.dev/packages/mocktail> |
 | | `bloc_test` | <https://pub.dev/packages/bloc_test> |
 
-All the libraries above are compatible with Flutter 3.
+All the libraries above are compatible with Flutter 3.41.6 (Dart 3.11.4).
 
 Notes: **need to install [flutter_gen](https://pub.dev/packages/flutter_gen)*
 
@@ -321,56 +316,78 @@ Add the translated strings to each `.arb` file:
 
 This section provides an overview of the breaking changes and steps needed to migrate from the previous version of this template to the latest release.
 
-### 1. Flutter Version & Tooling
+### Migration to Flutter 3.41.6 (Latest)
 
-- A new file (`.fvmrc`) has been introduced to specify the Flutter version. By default, it locks the project to **stable**. Ensure that [FVM](https://fvm.app/) is installed and run `fvm use` in the project directory if you're using FVM.
-- Update your local Flutter SDK to `3.6.x` or higher as specified in `pubspec.yaml` (`sdk: ">=3.6.0 <4.0.0"`).
+#### 1. Flutter Version & Tooling
 
-### 2. Removal of Freezed Code Generation
+- `.fvmrc` is now pinned to **3.41.6**. Update your local Flutter SDK or run `fvm use` if using [FVM](https://fvm.app/).
+- Dart SDK constraint updated to `>=3.11.0 <4.0.0`.
 
-- All code-generation files such as `*.codegen.dart` for Freezed and JSON serializations have been removed in favor of manually defined classes and sealed classes.
-- Replace any references to the older generated `ValueFailure` and `Failure` classes with the new `Failure` or `ValueFailure` sealed classes introduced in `lib/core/domain/failures/failure.dart` and `lib/core/domain/failures/value_failure.dart`.
+#### 2. iOS: CocoaPods to Swift Package Manager
 
-### 3. Updated Failure and ValueFailure Classes
+- The `Podfile` has been removed. iOS dependencies are now managed via **Swift Package Manager** (SwiftPM), which is the default in Flutter 3.24+.
+- The `ios/` project has been regenerated with a clean SwiftPM integration.
+- The app now uses the **UIScene lifecycle** with a `SceneDelegate.swift` (Flutter 3.41.6 default).
+- If you have custom CocoaPods plugins, you may need to check their SwiftPM compatibility.
 
-- The previous Freezed-based `Failure` and `ValueFailure` have been replaced with sealed classes:
-  - **Failure** now has `localFailure` and `serverFailure`.
-  - **ValueFailure** includes constructors like `empty`, `multiLine`, `notInRange`, and `invalidUniqueId`.
-- Check your test suite to ensure your assertions match the new class names (e.g., `ValueFailureInvalidUniqueId` instead of `ValueInvalidUniqueId`).
+#### 3. Android Gradle Updates
 
-### 4. Flash State Refactor
+- **Gradle**: 8.3 → 8.14
+- **Android Gradle Plugin**: 8.2.1 → 8.11.1
+- **Kotlin**: 1.9.20 → 2.2.20 (K2 compiler)
+- `android.enableJetifier` removed (deprecated).
+- `kotlin-stdlib` and `multidex` dependencies removed (auto-included / unnecessary with minSdk 21+).
+- JVM args updated for better build performance.
 
-- The `FlashState` class has been refactored from Freezed to a sealed class. If your UI logic relied on the Freezed `.when` or `.maybeWhen` methods, replace them with a `switch/case` or explicit type checks on `FlashAppeared` and `FlashDisappeared`.
+#### 4. Localization Changes
 
-### 5. Android Gradle Build Updates
+- The `flutter_gen` synthetic package has been deprecated. Localization files are now generated to `lib/l10n/generated/`.
+- Update imports from `package:flutter_gen/gen_l10n/app_localizations.dart` to `package:template/l10n/generated/app_localizations.dart`.
 
-- Gradle has been upgraded from version **7.4** to **8.3**.
-- Java source and target compatibility have been set to version 17. Ensure your local environment supports Java 17.
-- The plugin management in `android/settings.gradle` and `android/build.gradle` is updated to enable new Gradle features. If you maintain custom build scripts or rely on old plugin versions, update them accordingly.
+#### 5. Dependency Changes
 
-### 6. Dependency Updates
+- `injectable` updated to `^2.7.1` and `injectable_generator` to `^2.9.0`.
+- `google_fonts` updated to `^6.2.2` (Dart 3.11 compatibility fix).
+- `flutter_native_splash` removed from runtime dependencies (only needed as a CLI tool for generating splash assets, not at runtime).
+- `dependency_overrides` for `collection`, `intl`, and `meta` removed (no longer needed).
 
-- Many dependencies have been upgraded (e.g., `bloc`, `flutter_bloc`, `get_it`, `equatable`, etc.). Check `pubspec.yaml` for version changes.
-- Remove references to `freezed_annotation` and `json_annotation` if you no longer need them for code generation.
+#### 6. Post-Migration Checks
 
-### 7. Build Configuration Changes
+```sh
+# Clean and get dependencies
+flutter clean && flutter pub get
 
-- The `build.yaml` file no longer configures builders for Freezed or JSON serializable. If you were depending on those builders, consider using alternative solutions or re-adding them as needed.
+# Generate localization files
+flutter gen-l10n
 
-### 8. Testing Implications
+# Generate injectable and other code
+dart run build_runner build --delete-conflicting-outputs
 
-- Update your test imports to the new `failure.dart` and `value_failure.dart` files.
-- If you used specialized methods from Freezed in your tests (`maybeMap`, etc.), replace them with explicit class checks or a `switch` on the new sealed classes.
+# Verify
+flutter analyze
+flutter test
+flutter build apk --flavor development --debug -t lib/main_development.dart
+flutter build ios --flavor development --no-codesign --debug -t lib/main_development.dart
+```
 
-### 9. Post-Migration Checks
+### Previous Migration (Freezed Removal)
 
-- After updating your code and tests, run `flutter pub get` (or `fvm flutter pub get` if you use FVM) and then execute your test suite (`flutter test`) to ensure everything is working as expected.
-- Verify your app runs correctly on both iOS and Android devices or simulators/emulators.
-- If you used code generation for features not covered in this project’s new approach, you may need to add alternative solutions or manual code stubs.
+<details>
+<summary>Click to expand</summary>
+
+#### Removal of Freezed Code Generation
+
+- All Freezed code-generation files have been removed in favor of manually defined sealed classes.
+- `Failure` now has `localFailure` and `serverFailure`.
+- `ValueFailure` includes `empty`, `multiLine`, `notInRange`, and `invalidUniqueId`.
+- `FlashState` refactored from Freezed to a sealed class. Replace `.when`/`.maybeWhen` with `switch/case`.
+- Update test imports to use the new sealed class files.
+
+</details>
 
 ---
 
-Following these steps should ensure a smooth transition to the latest Flutter version and the refactored architecture. If you have any questions or encounter issues during migration, feel free to open an issue or reach out to the team!
+If you have any questions or encounter issues during migration, feel free to open an issue!
 
 [coverage_badge]: coverage_badge.svg
 [flutter_localizations_link]: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html

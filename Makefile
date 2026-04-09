@@ -4,11 +4,11 @@ get:
 
 .PHONY: build
 build:
-	@dart pub run build_runner build --delete-conflicting-outputs
+	@dart run build_runner build --delete-conflicting-outputs
 
 .PHONY: watch
 watch:
-	@dart pub run build_runner watch --delete-conflicting-outputs
+	@dart run build_runner watch --delete-conflicting-outputs
 
 .PHONY: apk-dev
 apk-dev:
