@@ -1,7 +1,7 @@
 name: template
 
 concurrency:
-  group: $-$
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 on:
@@ -16,8 +16,9 @@ on:
 
 jobs:
   build:
-    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/flutter_package.yml@v2
     with:
       flutter_channel: stable
+      flutter_version: "3.41.6"
       min_coverage: 0
-      setup: "flutter pub global activate very_good_cli && export PATH=$PATH:$HOME/.pub-cache/bin && dart run build_runner build --delete-conflicting-outputs"
+      setup: "flutter gen-l10n && dart run build_runner build --delete-conflicting-outputs"
